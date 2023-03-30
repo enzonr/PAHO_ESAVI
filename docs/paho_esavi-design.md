@@ -49,11 +49,11 @@ El programa de tracker está dividido en cuatro etapas no repetibles que utiliza
 
   
 
-![](https://lh4.googleusercontent.com/50IuMUIjuBpq6moIZ9EBU7A1t5zPXSTVyi0kYlbmzfdydi6IQ-iSZFfe25NaTbBIycDFV6dk00SR3yUsXeYoTZKz89c4hZq4k6PmOeh2sFsoBUxmycWtp4hXs4hIHkxtQMDpTCgIKkYZWliWadNsJ6zrozslOMcicpsjRLF0-LB6zt7Oy4yvOWRbJBWt)
+![Flujo de trabajo de ESAVI Centinela](ESAVI_flow.png)
 
 ### Explicación de la estructura
 
-La idea es que este programa pueda ser utilizado por aquellos que reportan solo ESAVIs, o por aquellos países que reportan ESAVIs y EVADIEs, siendo la etapa de clasificación donde se determina que tipo de evento esta siendo registrado. En el caso de los primeros, se ocultaría la etapa “EVADIE” y las reglas de programa correspondientes.
+La idea es que este programa pueda ser utilizado por aquellos que reportan solo ESAVIs, o por aquellos países que reportan ESAVIs y EVADIEs, siendo la etapa de clasificación donde se determina que tipo de evento esta siendo registrado. En el caso de que el evento a registrar se habilitaría la etapa "EVADIE", y en el caso de ESAVI se habilitaría la etapa de ESAVI. EN una implementación donde no se registren los EVADIE, la etapa de clasificación se podría ocultar utilizar directamente la etapa de ESAVI. 
 
   
 
@@ -125,7 +125,7 @@ Los grupos de usuario sirven para dar acceso a los distintos programas (por ejem
 
 La combinación de grupo de usuarios, roles y acceso a unidad organizativa permitirá controlar la granularidad del acceso. Para más información acerca de la configuración de acceso compartido, ver la [documentación de DHIS2](https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/configuring-the-system/users-roles-and-groups.html).  
   
-![](https://lh5.googleusercontent.com/bbxvYoJ2PAYfDVvytG9NdgEnxATh-EeFXNyAtZRYNzzROXqrFvsFLXLSwY9_KFlHCTd7eRqzy813-PKLsJoj74K4HeYBmtE84c30ibnAw5xOViZAYelHLNJGWd2oEX4PidMENZeV3QyGDJubYxTpGOdWtJRtQgtwBUypSdFnqTDLmIFxyR5AEzsgG4Wc)  
+![](ESAVI_user_diagram.png)  
   
 
   ### Grupos de usuarios básicos  
@@ -247,7 +247,7 @@ Las etapas se han configurado con formularios custom en HTML, y un formulario co
 
 El registro inicial del caso son los datos de la persona deberán adecuarse a las necesidades del país cuando se hace una instalación nacional. Por ejemplo, cambiar el nombre de “municipio” a “cantones”, incluir reglas de validación al documento de identidad nacional, y modificar la lista de opciones a los lugares correspondientes.  
   
-![](https://lh4.googleusercontent.com/XbupHpr9Lv1VV_2WaqZhFYfLWMmmEFNEzWitKjssG1r7Mjz-RNgkkteIvAcjTVxDtXuFHJDgNFUxmQ7gqrfItiDWzBgrKANYLRu_kn5dycTemUuhO5iYecQiv_AY2FHDgZ32XD6dUtaHhJHwHTnlNrwcjPGNmgQpmnwp6SiGyhhW3qCk5aG5Ct7Cvpmuhw)
+![](ESAVI_enrollment.png)
 
   
 
@@ -270,7 +270,7 @@ El registro inicial del caso son los datos de la persona deberán adecuarse a la
 En esta etapa se determina si el evento es un ESAVI o EVADIE basado en una serie de preguntas. Dependiendo de la clasificación inicial se habilitarán las etapas correspondientes.
  
 
-![](https://lh5.googleusercontent.com/8w_-sTVP8_RkNGT4XL-bbTcleNw3XIk_rxXO9udN-WdmmgswyQ8QSXILI2nXV73UQcwGnSXb61v0KABdFNKNtojnlZAcm-X5qXU_269RqLc6mH2k6M7FlZdOZ_RjmWeXpGIxuiTI3Wrl32z8Uuhg1mVgN4hBXFQAlIOG7B1fgXfw6RN_pvFZK5LP3N0MPg)
+![](ESAVI_classification.png)
 
   
 ### Etapa EVADIE
@@ -279,15 +279,15 @@ En esta etapa se determina si el evento es un ESAVI o EVADIE basado en una serie
 La etapa de EVADIE solamente estaría disponible cuando el evento que se registra no sea relacionado a una vacuna (ver reglas de programa).
 
   
-![](https://lh6.googleusercontent.com/NrQ_8-oQnHBJKv42MMdI1pzObeFsGLXONg1pde9GofrJV76GhZYO0pf-SeaOtnDuuAMCTcpi8elzOjqoI6BKsRr5wB9HTptFMyIPBYKzQJzGYP3XnU4jTd6eNCBMJ8MYztb4o0maQ97ge-DGx34bQn2mo7GiUBOt_CkvJ0x7dx_3Oyh-qcl6VYylYxlllQ)
+![](ESAVI_EVADIE.png)
 
 ### Etapa Notificación ESAVI
   
-La etapa de notificación ESAVI solo está disponible cuando el evento corresponde a un ESAVI, y es donde se registran los datos generales del ESAVI y una clasificación preliminar. En esta etapa se determina si el caso necesitará una investigación, y habilita la etapa correspondiente a aquellos usuarios que tengan acceso a la etapa de investigación
+La etapa de notificación ESAVI solo está disponible cuando el evento corresponde a un ESAVI, y es donde se registran los datos generales del ESAVI y una clasificación preliminar. En esta etapa se determina si el caso necesitará una investigación, y habilita la etapa correspondiente a aquellos usuarios que tengan acceso a la etapa de investigación.
 
-![](https://lh5.googleusercontent.com/C4MhW1R5c7JEkP_f_IwxAeuuh1OcdtlDv6eK3-Y2UdcOapEe4jIOkQpbmi_KQFiPUBr77eB6i-gUydkDXaKXbZLS_VOHp7WUsptx7t6X_09T6P5v3Go-NxiQUsVArSHkpLkiVuewLIDV66NnesY19P0UgbvckYKXZETOcZMVc1j_AuI7RHSZtP0IsaSiiQ)
+![](ESAVI_ESAVI.png)
 
-.![](https://lh6.googleusercontent.com/mAdcNSmwHpLOsjcyXfNy_A79UUarKFKfDFs3H6YB8jgP0lLLPy6zgb4mQHDCPynW8rmbnbr9n1qY7ZkwRDY58lCz19mlHB9sE6IOfqbde28Kfd1mvhh6c--xQTd5e39JN5DOrnspuNmJw9AB3T8syDucWxDXX8TeqPae5-dJcPgx8yZlty02ru8bLTR5iw)
+![](ESAVI_ESAVI_2.png)
   
 
 ### Etapa Investigación ESAVI
@@ -297,13 +297,13 @@ La etapa está dividida en 8 secciones y una pregunta introductoria. Las distint
 
   
 
-![](https://lh4.googleusercontent.com/tLIN6NLKDMWV3wPKMX_Ja9xR9mxlI0qkvVey_tT0njsmWkvPuNYEFtrcfIRqYRwnvbSZEIshO08PEwpl9aRK6ZNTreS00vxS4_W_37rFAnf7UKlrm4DQJ8TlAP3kEo76S9FpRFlCzWsFzMa8hkR7p5y2wbFozht6MIB86NTIbvnqGYuaK8xQ3TgHHRzyiA)
+![](ESAVI_Investigation.png)
 
 ### Etapa Clasificación final
 
 Esta etapa normalmente es accesible solamente a nivel distrital o nacional, y es donde se confirman los resultados del ESAVI y la clasificación final se registra.  
 
-![](https://lh4.googleusercontent.com/CpErxMuC1xTeDvlCYCst_72cqpatx83l47dWbez9yMMXExKYYAJhOh18H5XkOOUssDwpbV5QdVUNOGzsMU5o6l_BtifQ8HdOMhckpH3WoJXF_wkmtbPP92bcKbsyEYIWK8R1OhnZFN2g27GQZsjCpxgK4LnzYz9_893nm2jn2SeK-JevJrKcCUBWnVw3HA)
+![](ESAVI_classification_final.png)
 
 ## Analiticas
 
@@ -327,7 +327,7 @@ La primera versión de este paquete solamente cuenta con dos tablero resumidos m
 
   
 
-![](https://lh5.googleusercontent.com/z_EFpFScNLcNamKnRoHITEZCuy7L6TKhLAf69e_f9zI3Zh0DlPXuN3A5Wx4EldEBuFwCyJA2izpxyKLoNoTRugfzgi1FbAnm2DUC8oEvj8VfpPTXLgWtEoWdciCs09AgjXW2UNNis9WlFL3Ih4ruAfGRHgForg1QZGqL0TrCYT5D0Ei0NnGmYqQ2HGqLTw)
+![](ESAVI_Dashboard.png)
 
   
   
